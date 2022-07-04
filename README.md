@@ -82,7 +82,7 @@
 11. dot-product:计算a1和a1(自己),a2,a3,a4之间的alpha。计算四个alpha之后，需要做个softmax，获得新的alpha，alpha的意义是相关性大小，然后v1=wv\*a1,alpha1\*v1相加起来四个，则是b。意思就是，越相关的起到的作用越大。
 12. 通过dot-product可知。self-attention就是通过一排序列得到新的一排序列(每个item包含所有序列内容，重要性是由相关性决定)
 
-![](<.gitbook/assets/image (8).png>)
+![](<.gitbook/assets/image (9).png>)
 
 ![](.gitbook/assets/image.png)
 
@@ -118,7 +118,7 @@
 
 5\. transformer的encoder和decoder基本上类似，decoder多了masked self-attention和softmax。
 
-![](<.gitbook/assets/image (7).png>)
+![](<.gitbook/assets/image (8).png>)
 
 6\. masked self-attention指的是b只能考虑本身及之前的信息，而不能拿未来的信息。masked的原因是decoder是逐步生成的，而不是一步全部到位。
 
@@ -137,8 +137,55 @@
 
 
 
+**生成对抗神经网络**
+
+1. ****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+****
+
+
+
+
+
 **强化学习**
 
 1. 强化学习会知道什么输出是好的什么输出是差的。
 2. actor观察环境并作出action，影响环境。
-3.
+3. reward指的是采取某个行为得到的好处，return指的是整个reward总和。
+4. 优化：env、actor不断迭代优化寻找最优，使得reward最大。
+
+![](<.gitbook/assets/image (10).png>)
+
+5\. 控制actor，注意如果是不要做的行为，则取反cross-entropy。
+
+![](<.gitbook/assets/image (12).png>)
