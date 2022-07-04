@@ -5,7 +5,7 @@
 1. 回归和分类：回归预测具体数值；分类预测所属分类。
 2. 逻辑回归：损失函数用交叉熵（非凸函数）不能用最小二乘法，因为非凸函数的特性使得其会陷入局部最优。（待定）交叉熵的原因是，loss的区别。cross-entropy可以随着目标轻松的梯度下降，而mse(mean square error)无法做到，因为mse在loss大的时候，难以轻松下降。
 
-![](<.gitbook/assets/image (19).png>)
+![](<.gitbook/assets/image (6) (1).png>)
 
 1. 梯度下降：初始$$\theta$$,$$\theta$$针对各维度/参数求偏导，得到梯度L($$\theta$$)；=argmin L
 2. Batch：随机分的批，一批一批的$$\theta$$梯度更新$$\theta$$。一个batch叫update，所有batch叫epoch
@@ -44,7 +44,7 @@
 1. softmax，把y变成y'。y\_i'处于0-1之间。且相乘是1。softmax就是normalize。会让大值和小值的差距更大。两个类用sigmod和多类用softmax是一样的。
 2. 分类采用cross entropy的原因：交叉熵的原因是，loss的区别。cross-entropy可以随着目标轻松的梯度下降，而mse(mean square error)无法做到，因为mse在loss大的时候，难以轻松下降。
 
-![](<.gitbook/assets/image (7).png>)
+![](<.gitbook/assets/image (2) (1).png>)
 
 **批次标准化**
 
@@ -82,7 +82,7 @@
 11. dot-product:计算a1和a1(自己),a2,a3,a4之间的alpha。计算四个alpha之后，需要做个softmax，获得新的alpha，alpha的意义是相关性大小，然后v1=wv\*a1,alpha1\*v1相加起来四个，则是b。意思就是，越相关的起到的作用越大。
 12. 通过dot-product可知。self-attention就是通过一排序列得到新的一排序列(每个item包含所有序列内容，重要性是由相关性决定)
 
-![](<.gitbook/assets/image (12).png>)
+![](<.gitbook/assets/image (9).png>)
 
 ![](.gitbook/assets/image.png)
 
@@ -110,7 +110,7 @@
 2. seq2seq一般涵盖encoder和decoder。
 3. transformer，相比于self-attention，加入了residual部分，即b部分(注意力)+input，residual connection(a+b). -> norm/normalization(和batch normalization的区别是，batch是同维度不同x；layer normalization是不同维度的同个x）
 
-![](<.gitbook/assets/image (6).png>)
+![](<.gitbook/assets/image (5).png>)
 
 4\. encoder -> decoder:注意decoder输出的是比如所有汉字的概率，然后选择概率最大的作为下一个decoder的输入（之前需要做softmax获得最大概率）
 
@@ -118,7 +118,7 @@
 
 5\. transformer的encoder和decoder基本上类似，decoder多了masked self-attention和softmax。
 
-![](<.gitbook/assets/image (10).png>)
+![](<.gitbook/assets/image (8).png>)
 
 6\. masked self-attention指的是b只能考虑本身及之前的信息，而不能拿未来的信息。masked的原因是decoder是逐步生成的，而不是一步全部到位。
 
@@ -128,7 +128,7 @@
 
 9\. Decoder链接encoder图示:
 
-![](<.gitbook/assets/image (8).png>)
+![](<.gitbook/assets/image (6).png>)
 
 10\. 训练过程：最后生成的汉字和实际结果，进行minimize cross entropy。\
 11\. 有时候训练和测试的时候都需要加入杂讯。
@@ -139,7 +139,9 @@
 
 **生成对抗神经网络**
 
-1. 生成式generator**：**
+1. 生成式generator**：**之前是x到y；现在是输入分布，输出分布。
+2. 若x到y，由于训练资料可能存在不同的策略（比如小精灵向左还是向右转），因此我们需要加入概率分布，这样子（向左还是向右是概率问题）
+3.
 
 ****
 
@@ -184,8 +186,8 @@
 3. reward指的是采取某个行为得到的好处，return指的是整个reward总和。
 4. 优化：env、actor不断迭代优化寻找最优，使得reward最大。
 
-![](<.gitbook/assets/image (13).png>)
+![](<.gitbook/assets/image (10).png>)
 
 5\. 控制actor，注意如果是不要做的行为，则取反cross-entropy。
 
-![](<.gitbook/assets/image (15).png>)
+![](<.gitbook/assets/image (12).png>)
