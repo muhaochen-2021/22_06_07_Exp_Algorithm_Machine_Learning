@@ -110,7 +110,7 @@
 2. seq2seq一般涵盖encoder和decoder。
 3. transformer，相比于self-attention，加入了residual部分，即b部分(注意力)+input，residual connection(a+b). -> norm/normalization(和batch normalization的区别是，batch是同维度不同x；layer normalization是不同维度的同个x）
 
-![](<.gitbook/assets/image (5).png>)
+![](<.gitbook/assets/image (5) (1).png>)
 
 4\. encoder -> decoder:注意decoder输出的是比如所有汉字的概率，然后选择概率最大的作为下一个decoder的输入（之前需要做softmax获得最大概率）
 
@@ -118,7 +118,7 @@
 
 5\. transformer的encoder和decoder基本上类似，decoder多了masked self-attention和softmax。
 
-![](<.gitbook/assets/image (8).png>)
+![](<.gitbook/assets/image (8) (1).png>)
 
 6\. masked self-attention指的是b只能考虑本身及之前的信息，而不能拿未来的信息。masked的原因是decoder是逐步生成的，而不是一步全部到位。
 
@@ -141,7 +141,18 @@
 
 1. 生成式generator**：**之前是x到y；现在是输入分布，输出分布。
 2. 若x到y，由于训练资料可能存在不同的策略（比如小精灵向左还是向右转），因此我们需要加入概率分布，这样子（向左还是向右是概率问题）
-3.
+3. GAN(生成对抗神经网络，generative adversarial network)
+4. GAN存在generator 和 discriminator，互相对抗。
+
+![](<.gitbook/assets/image (8).png>)
+
+5\. 以图像识别为例，generator输入low-dim,输出high-dim(图像)；discriminator输入图像，输出概率。
+
+
+
+
+
+
 
 ****
 
